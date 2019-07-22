@@ -3,6 +3,7 @@ import React from "react"
 import Intro from "../components/Intro"
 import PageLayout from "../components/PageLayout"
 import PostList from "../components/PostList"
+import Helmet from "react-helmet"
 
 type IndexDataQuery = {
   allMarkdownRemark: {
@@ -12,6 +13,9 @@ type IndexDataQuery = {
 
 export default ({ data }: { data: IndexDataQuery }) => (
   <PageLayout>
+    <Helmet>
+      <title>filipe.kiss.ink</title>
+    </Helmet>
     <Intro />
     <PostList posts={data.allMarkdownRemark.edges} />
   </PageLayout>
