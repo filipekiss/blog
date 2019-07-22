@@ -39,13 +39,13 @@ const gatsbyConfig = {
         path: `${__dirname}/content/blog`,
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: `${__dirname}/content/pages`,
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     name: "pages",
+    //     path: `${__dirname}/content/pages`,
+    //   },
+    // },
     "gatsby-transformer-remark",
   ],
 }
