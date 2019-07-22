@@ -1,15 +1,9 @@
-import React from "react"
 import { Link } from "gatsby"
+import React from "react"
 
 export type HeaderProps = {
   headerText: string
   links: HeaderLink[]
-}
-
-export type HeaderLink = {
-  href: string
-  text: string
-  isExternalLink?: boolean
 }
 
 const buildHeaderLink = (link: HeaderLink) => {
@@ -23,11 +17,14 @@ const buildHeaderLink = (link: HeaderLink) => {
 export default (props: HeaderProps) => {
   const { headerText, links } = props
   const linksElement = (
-    <nav class="flex flex-col">
-      <ul className="flex justify-end my-auto">
+    <nav className="flex flex-col">
+      <ul className="flex justify-end my-auto list-none">
         {links.map((link: HeaderLink) => {
           return (
-            <li className="ml-10" id={link.text.replace(/[^A-Za-z0-9]/gi, "-")}>
+            <li
+              className="ml-10"
+              key={link.text.replace(/[^A-Za-z0-9]/gi, "-")}
+            >
               {buildHeaderLink(link)}
             </li>
           )
@@ -36,9 +33,9 @@ export default (props: HeaderProps) => {
     </nav>
   )
   return (
-    <div class="flex justify-between">
-      <Link className="text-victoria-600 text-3xl" to="/">
-        <h1 className="text-6xl text-gray-900">{headerText}</h1>
+    <div className="flex justify-between mb-20">
+      <Link className="text-victoria-600" to="/">
+        <span className="text-gray-900">{headerText}</span>
       </Link>
       {linksElement}
     </div>

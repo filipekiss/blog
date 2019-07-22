@@ -1,21 +1,25 @@
 import { graphql } from "gatsby"
 import React from "react"
 import PageLayout from "../components/PageLayout"
-import { MarkdownRemark } from "../types/graphql"
 
-export default ({
-  data,
-}: {
+type BlogPostQuery = {
   data: {
-    markdownRemark: MarkdownRemark
+    markdownRemark: {
+      frontmatter: {
+        title: string
+      }
+      html: string
+    }
   }
-}) => {
+}
+
+export default ({ data }: BlogPostQuery) => {
   const post = data.markdownRemark
   return (
     <PageLayout>
       <div>
-        <h1>{post!.frontmatter!.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post!.html! }} />
+        <h1>{post.frontmatter.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </PageLayout>
   )

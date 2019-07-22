@@ -15,14 +15,12 @@ module.exports = {
           800: "#251F41",
           900: "#19142C",
         },
-        fontFamily: {
-          sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-        },
+      },
+      fontFamily: {
+        sans: ["Nunito", ...defaultTheme.fontFamily.sans],
       },
     },
     variants: {},
-    plugins: [
-      require("tailwind-css-variables")({}, { postcssEachVariables: true }),
-    ],
+    plugins: [],
   },
 }

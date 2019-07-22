@@ -11,7 +11,7 @@ const gatsbyConfig = {
       links: [
         {
           href: "/about.html",
-          text: "about me",
+          text: "about",
           isExternalLink: false,
         },
         {
