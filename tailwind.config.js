@@ -1,0 +1,28 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        victoria: {
+          100: "#EEECF4",
+          200: "#D4D0E4",
+          300: "#BAB4D3",
+          400: "#877CB2",
+          500: "#534491",
+          600: "#4B3D83",
+          700: "#322957",
+          800: "#251F41",
+          900: "#19142C",
+        },
+        fontFamily: {
+          sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+        },
+      },
+    },
+    variants: {},
+    plugins: [
+      require("tailwind-css-variables")({}, { postcssEachVariables: true }),
+    ],
+  },
+}

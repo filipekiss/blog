@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "@filipekiss/blog",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
   "version": "0.1.0",
@@ -10,15 +10,40 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "type-check": "tsc --noEmit",
+    "lint": "tslint --project .",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "gatsby": "^2.13.28",
+    "gatsby-plugin-postcss": "^2.1.2",
+    "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-tslint": "^0.0.2",
+    "gatsby-plugin-typescript": "^2.1.2",
+    "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-transformer-remark": "^2.6.7",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@filipekiss/tsconfig": "*",
+    "@graphql-codegen/cli": "^1.4.0",
+    "@graphql-codegen/typescript-operations": "^1.4.0",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-helmet": "^5.0.8",
+    "prettier": "^1.18.2",
+    "tailwind-css-variables": "^2.0.2",
+    "tailwindcss": "^1.0.5",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.3"
   },
   "repository": {
     "type": "git",
