@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import Intro from "../components/Intro"
 import PageLayout from "../components/PageLayout"
@@ -29,6 +29,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            excerpt
           }
           fields {
             slug

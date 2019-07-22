@@ -7,6 +7,9 @@ type Props = {
 
 export default (props: Props) => {
   const { posts } = props
+  if (posts.length < 1) {
+    return <div className="text-lg">No posts here yet! Come back later.</div>
+  }
   return (
     <ul class="list-none">
       {posts.map(({ node: post }) => {
@@ -16,7 +19,11 @@ export default (props: Props) => {
               <h3>
                 {post.frontmatter.title} <span>— {post.frontmatter.date}</span>
               </h3>
-              <p>{post.excerpt}</p>
+              <p>
+                {post.frontmatter.excerpt
+                  ? post.frontmatter.excerpt
+                  : post.excerpt}
+              </p>
             </Link>
           </li>
         )

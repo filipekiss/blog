@@ -25,5 +25,6 @@ interface PostT {
   frontmatter: {
     title: string
     date: string
+    excerpt?: string
   }
 }

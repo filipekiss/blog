@@ -3,6 +3,9 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 module.exports = {
   theme: {
     extend: {
+      borderRadius: {
+        circle: "50%",
+      },
       colors: {
         victoria: {
           100: "#EEECF4",

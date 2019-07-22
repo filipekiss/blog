@@ -22,7 +22,7 @@ export default (props: HeaderProps) => {
         {links.map((link: HeaderLink) => {
           return (
             <li
-              className="ml-10"
+              className="ml-2 lg:ml-10"
               key={link.text.replace(/[^A-Za-z0-9]/gi, "-")}
             >
               {buildHeaderLink(link)}
@@ -33,7 +33,7 @@ export default (props: HeaderProps) => {
     </nav>
   )
   return (
-    <div className="flex justify-between mb-20">
+    <div className="flex justify-between items-end mb-20 text-base lg:text-xl">
       <Link className="text-victoria-600" to="/">
         <span className="text-gray-900">{headerText}</span>
       </Link>

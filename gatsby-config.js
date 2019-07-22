@@ -10,7 +10,7 @@ const gatsbyConfig = {
     header: {
       links: [
         {
-          href: "/about.html",
+          href: "/about",
           text: "about",
           isExternalLink: false,
         },
@@ -46,7 +46,12 @@ const gatsbyConfig = {
         path: `${__dirname}/content/pages`,
       },
     },
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        excerpt_separator: `<!-- end -->`,
+      },
+    },
   ],
 }
 
