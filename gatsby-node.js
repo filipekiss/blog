@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(
     `
-      {
+      query {
         allMarkdownRemark {
           edges {
             node {

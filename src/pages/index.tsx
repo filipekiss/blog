@@ -20,7 +20,10 @@ export default ({ data }: { data: IndexDataQuery }) => (
 export const query = graphql`
   query IndexData {
     allMarkdownRemark(
-      filter: { fields: { collection: { eq: "blog" } } }
+      filter: {
+        fields: { collection: { eq: "blog" } }
+        frontmatter: { published: { eq: true } }
+      }
       sort: { fields: frontmatter___date }
     ) {
       edges {

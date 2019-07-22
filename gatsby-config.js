@@ -46,12 +46,7 @@ const gatsbyConfig = {
         path: `${__dirname}/content/pages`,
       },
     },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        excerpt_separator: `<!-- end -->`,
-      },
-    },
+    "gatsby-transformer-remark",
   ],
 }
 
