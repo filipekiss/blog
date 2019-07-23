@@ -9,7 +9,11 @@ export type HeaderProps = {
 const buildHeaderLink = (link: HeaderLink) => {
   const { href, text, isExternalLink } = link
   if (isExternalLink) {
-    return <a href={href}>{text}</a>
+    return (
+      <a rel="noreferer noopener" target="_blank" href={href}>
+        {text}
+      </a>
+    )
   }
   return <Link to={href}>{text}</Link>
 }
