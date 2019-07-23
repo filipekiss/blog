@@ -8,6 +8,7 @@ type BlogPostQuery = {
     markdownRemark: {
       frontmatter: {
         title: string
+        date: string
       }
       html: string
       fields: {
@@ -24,6 +25,7 @@ export default ({ data }: BlogPostQuery) => {
       <Meta title={post.frontmatter.title} url={post.fields.slug} />
       <div>
         <h1>{post.frontmatter.title}</h1>
+        <small>Published on {post.frontmatter.date}</small>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </PageLayout>
@@ -38,6 +40,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        date(formatString: "DD-MM-YY HH:mm")
       }
       fields {
         slug
