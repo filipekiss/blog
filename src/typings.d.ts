@@ -10,6 +10,7 @@ interface SiteMetaData {
       image: string
       siteDomain: string
       twitterId: string
+      protocol: string
       social: {
         twitter: {
           url: string

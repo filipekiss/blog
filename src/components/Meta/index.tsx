@@ -29,6 +29,7 @@ export default function Meta(props: Props) {
           title
           titleTemplate
           siteDomain
+          protocol
           description
           image
           social {
@@ -51,10 +52,11 @@ export default function Meta(props: Props) {
     siteDomain,
     title: defaultTitle,
     titleTemplate,
+    protocol,
   } = data.site.siteMetadata
   const { twitter } = social
 
-  const siteUrl = `https://${siteDomain}`
+  const siteUrl = `${protocol}://${siteDomain}`
 
   console.log({ props, data })
 
@@ -72,7 +74,7 @@ export default function Meta(props: Props) {
       </Helmet>
       <Facebook
         url={url || siteUrl}
-        img={img || `${siteDomain}/${socialImg}`}
+        img={img || `${siteUrl}${socialImg}`}
         article={Boolean(article)}
       />
       <Twitter
@@ -81,7 +83,7 @@ export default function Meta(props: Props) {
         id={twitterId}
         creator={twitter.username}
         domain={siteDomain}
-        image={img || `${siteDomain}/${socialImg}`}
+        image={img || `${siteUrl}${socialImg}`}
       />
     </>
   )

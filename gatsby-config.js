@@ -10,13 +10,21 @@ const socialNetworks = {
   twitter: `https://twitter.com/${username}`,
 }
 
+const siteDomain =
+  process.env.NODE_ENV === "production"
+    ? "filipe.kiss.ink"
+    : "local.kiss.ink:8000"
+
+const protocol = process.env.NODE_ENV === "production" ? "https" : "http"
+
 const gatsbyConfig = {
   siteMetadata: {
     title: `filipe.kiss.ink`,
     titleTemplate: "%s · filipe.kiss.ink",
     description: `Hi, I'm Filipe Kiss and I'm a developer. I talk about software, code and other stuff`,
     image: `/images/social.png`,
-    siteDomain: "filipe.kiss.ink",
+    siteDomain,
+    protocol,
     social: {
       github: {
         url: socialNetworks.github,
