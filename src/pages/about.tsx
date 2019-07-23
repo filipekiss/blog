@@ -5,7 +5,7 @@ import Meta from "../components/Meta"
 
 export default () => (
   <PageLayout>
-    <Meta title="about" />
+    <Meta title="about" url="/about" />
     <h1>About</h1>
     <div className="flex mb-20 items-center flex-col lg:flex-row">
       <div className="mb-10 lg:mb-0 max-w-xs lg:max-w-full lg:order-2 lg:w-1/2">

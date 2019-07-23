@@ -62,6 +62,11 @@ export default function Meta(props: Props) {
 
   const siteUrl = `${protocol}://${siteDomain}`
 
+  let canonicalUrl = url
+  if (url && url.startsWith("/")) {
+    canonicalUrl = `${siteUrl}${url}`
+  }
+
   return (
     <>
       <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate}>
@@ -76,7 +81,7 @@ export default function Meta(props: Props) {
       </Helmet>
       <Facebook
         title={title ? formatTitle(titleTemplate, title) : defaultTitle}
-        url={url || siteUrl}
+        url={canonicalUrl || siteUrl}
         img={img || `${siteUrl}${socialImg}`}
         article={Boolean(article)}
       />
