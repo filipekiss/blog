@@ -1,38 +1,38 @@
-import React from "react"
-import "../../styles/global.css"
-import Header from "../Header"
-import Meta from "../Meta"
-import { useStaticQuery, graphql } from "gatsby"
-import Footer from "../Footer"
+import {graphql, useStaticQuery} from 'gatsby';
+import React from 'react';
+import '../../styles/global.css';
+import Footer from '../Footer';
+import Header from '../Header';
+import Meta from '../Meta';
 
 export const PageLayout = (props: any) => {
-  const { children } = props
+    const {children} = props;
 
-  const data: SiteMetaData = useStaticQuery(graphql`
-    query HeaderSiteQuery {
-      site {
-        siteMetadata {
-          header {
-            links {
-              href
-              isExternalLink
-              text
+    const data: ISiteMetaData = useStaticQuery(graphql`
+        query HeaderSiteQuery {
+            site {
+                siteMetadata {
+                    header {
+                        links {
+                            href
+                            isExternalLink
+                            text
+                        }
+                    }
+                    title
+                }
             }
-          }
-          title
         }
-      }
-    }
-  `)
-  return (
-    <div>
-      <Meta />
-      <Header
-        headerText={data.site.siteMetadata.title}
-        links={data.site.siteMetadata.header.links}
-      />
-      {children}
-      <Footer />
-    </div>
-  )
-}
+    `);
+    return (
+        <div>
+            <Meta />
+            <Header
+                headerText={data.site.siteMetadata.title}
+                links={data.site.siteMetadata.header.links}
+            />
+            {children}
+            <Footer />
+        </div>
+    );
+};

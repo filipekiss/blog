@@ -1,2 +1,2 @@
-import { Meta } from "./Meta"
-export default Meta
+import {Meta} from './Meta';
+export default Meta;

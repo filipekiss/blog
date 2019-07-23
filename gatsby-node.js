@@ -1,76 +1,201 @@
-const path = require("path")
-const fs = require("fs")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require('path');
+const {
+    supportedLanguages,
+    defaultPostsLanguage,
+    languageNameFromCode,
+} = require('./i18n');
+const _ = require('lodash');
 
-const addCollectionField = function(node, getNode, createNodeField) {
-  const parent = getNode(node.parent)
-  createNodeField({
-    node,
-    name: "collection",
-    value: parent.sourceInstanceName,
-  })
+function addCollectionField(node, getNode, createNodeField) {
+    const parent = getNode(node.parent);
+    createNodeField({
+        node,
+        name: 'collection',
+        value: parent.sourceInstanceName,
+    });
 }
 
-const addSlugField = function(node, getNode, createNodeField) {
-  let slug = createFilePath({ node, getNode })
-  slug = slug.substring(0, slug.length - 1)
-  if (node.fields.collection) {
-    slug = `/${node.fields.collection}${slug}`
-  }
-  createNodeField({
-    node,
-    name: `slug`,
-    value: `${slug}`,
-  })
+function addDirectoryField(node, createNodeField) {
+    createNodeField({
+        node,
+        name: 'directoryName',
+        value: path.basename(path.dirname(_.get(node, 'fileAbsolutePath'))),
+    });
 }
 
-const resolveComponentFilePath = node => {
-  const defaultComponent = path.resolve("./src/templates/index.tsx")
-  const collectionName = node.fields.collection
-  const customComponent = path.resolve(
-    `./src/templates/collection-${collectionName}.tsx`
-  )
-  if (fs.existsSync(customComponent)) {
-    return customComponent
-  }
-  return defaultComponent
+function createIndexPages(createPage) {
+    Object.keys(supportedLanguages).forEach((langKey) => {
+        const pageDetails = {
+            path: langKey === 'en' ? '/' : `/${langKey}/`,
+            component: path.resolve('./src/templates/post-list.tsx'),
+            context: {
+                langKey,
+            },
+        };
+        createPage(pageDetails);
+    });
 }
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === "MarkdownRemark") {
-    addCollectionField(node, getNode, createNodeField)
-    addSlugField(node, getNode, createNodeField)
-  }
+function addMaybeAbsoluteLinksField(node, createNodeField) {
+    const markdown = node.internal.content;
+    let maybeAbsoluteLinks = [];
+    let linkRe = /\]\((\/[^\)]+)\)/g;
+    let match = linkRe.exec(markdown);
+    while (match != null) {
+        maybeAbsoluteLinks.push(match[1]);
+        match = linkRe.exec(markdown);
+    }
+    const foundLinks = _.uniq(maybeAbsoluteLinks);
+    createNodeField({
+        node,
+        name: 'maybeAbsoluteLinks',
+        value: foundLinks.length > 0 ? foundLinks : [''],
+    });
 }
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  return graphql(
-    `
-      query {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-                collection
-              }
-            }
-          }
+function getTranslations(post, allTranslations) {
+    const availableTranslations =
+        allTranslations[_.get(post, 'node.fields.directoryName')] || [];
+
+    availableTranslations.sort((a, b) =>
+        languageNameFromCode(a) < languageNameFromCode(b) ? -1 : 1
+    );
+
+    availableTranslations.push(defaultPostsLanguage);
+
+    const translations = availableTranslations.reduce((result, translation) => {
+        const postSlug = post.node.fields.slug;
+        const postLang = post.node.fields.langKey;
+        const rawSlug = postSlug.replace(`/${postLang}`, '');
+        if (translation === defaultPostsLanguage) {
+            result[translation] = rawSlug;
+            return result;
         }
-      }
-    `
-  ).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const component = resolveComponentFilePath(node)
-      createPage({
-        path: node.fields.slug,
-        component,
-        context: {
-          slug: node.fields.slug,
-        },
-      })
-    })
-  })
+        result[translation] = `/${translation}${rawSlug}`;
+        return result;
+    }, {});
+
+    return translations;
 }
+
+exports.onCreateNode = ({node, getNode, actions}) => {
+    const {createNodeField} = actions;
+    if (_.get(node, 'internal.type') === 'MarkdownRemark') {
+        addCollectionField(node, getNode, createNodeField);
+        addDirectoryField(node, createNodeField);
+        addMaybeAbsoluteLinksField(node, createNodeField);
+    }
+};
+
+exports.createPages = ({graphql, actions}) => {
+    const {createPage} = actions;
+
+    return new Promise((resolve, reject) => {
+        createIndexPages(createPage);
+
+        resolve(
+            graphql(
+                `
+                    {
+                        allMarkdownRemark(
+                            filter: {frontmatter: {published: {eq: true}}}
+                            sort: {fields: [frontmatter___date], order: DESC}
+                            limit: 1000
+                        ) {
+                            edges {
+                                node {
+                                    fields {
+                                        slug
+                                        langKey
+                                        directoryName
+                                        collection
+                                    }
+                                    frontmatter {
+                                        title
+                                    }
+                                }
+                            }
+                        }
+                    }
+                `
+            ).then((result) => {
+                if (result.errors) {
+                    console.log(result.errors);
+                    reject(result.errors);
+                    return;
+                }
+
+                // Create blog posts pages.
+                const blogPostTemplate = path.resolve(
+                    './src/templates/post-single.tsx'
+                );
+                const posts = _.get(result, 'data.allMarkdownRemark.edges');
+
+                const allTranslations = _.reduce(
+                    posts,
+                    (result, post) => {
+                        const directoryName = _.get(
+                            post,
+                            'node.fields.directoryName'
+                        );
+                        const langKey = _.get(post, 'node.fields.langKey');
+
+                        if (directoryName && langKey && langKey !== 'en') {
+                            (
+                                result[directoryName] ||
+                                (result[directoryName] = [])
+                            ).push(langKey);
+                        }
+
+                        return result;
+                    },
+                    {}
+                );
+
+                const defaultLangPosts = posts.filter(
+                    ({node}) => node.fields.langKey === 'en'
+                );
+                _.each(defaultLangPosts, (post, index) => {
+                    const previousPost =
+                        index === defaultLangPosts.length - 1
+                            ? null
+                            : defaultLangPosts[index + 1].node;
+                    const nextPost =
+                        index === 0 ? null : defaultLangPosts[index - 1].node;
+
+                    createPage({
+                        path: _.get(post, 'node.fields.slug'),
+                        component: blogPostTemplate,
+                        context: {
+                            slug: post.node.fields.slug,
+                            previousPost,
+                            nextPost,
+                            translations: getTranslations(
+                                post,
+                                allTranslations
+                            ),
+                        },
+                    });
+                });
+
+                const otherLangPosts = posts.filter(
+                    ({node}) => node.fields.langKey !== 'en'
+                );
+
+                _.each(otherLangPosts, (post) => {
+                    createPage({
+                        path: post.node.fields.slug,
+                        component: blogPostTemplate,
+                        context: {
+                            slug: post.node.fields.slug,
+                            translations: getTranslations(
+                                post,
+                                allTranslations
+                            ),
+                        },
+                    });
+                });
+            })
+        );
+    });
+};

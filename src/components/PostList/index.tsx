@@ -1,2 +1,2 @@
-import { PostList } from './PostList'
+import {PostList} from './PostList';
 export default PostList;

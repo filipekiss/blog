@@ -1,0 +1,8 @@
+---
+title: Frontmatter
+spoiler:
+    This file is here only to ensure all frontmatter fields are available to
+    queries
+date: 2019-07-24
+published: false
+---

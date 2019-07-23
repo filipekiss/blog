@@ -1,9 +1,9 @@
 {
-  "extends": "@filipekiss/tsconfig",
-  "compileOnSave": false,
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "es2015", "es2017"],
-    "allowSyntheticDefaultImports": true
-  }
+    "extends": "@filipekiss/tsconfig",
+    "compileOnSave": false,
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "es2019"],
+        "allowSyntheticDefaultImports": true
+    }
 }

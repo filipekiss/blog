@@ -1,82 +1,87 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Nunito&display=swap");
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Nunito&display=swap');
 
 @tailwind base;
 
 @tailwind components;
 
 a {
-  @apply text-victoria-500;
-  @apply relative;
-  transition: all 0.25s ease-out;
+    @apply text-victoria-500;
+    @apply relative;
+    @apply z-10;
+    transition: all 0.25s ease-out;
 }
 
 a::before {
-  content: "";
-  @apply text-victoria-500;
-  box-shadow: inset 0 -1px 0 0 currentColor;
-  transition: all 0.25s ease-out;
-  z-index: -1;
-  @apply absolute inline-block bottom-0 left-0 right-0 h-full;
+    content: '';
+    @apply text-victoria-500;
+    box-shadow: inset 0 -1px 0 0 currentColor;
+    transition: all 0.25s ease-out;
+    z-index: -1;
+    @apply absolute inline-block bottom-0 left-0 right-0 h-full;
 }
 
 a:hover {
-  @apply text-gray-100;
+    @apply text-gray-100;
 }
 
 a:hover::before {
-  box-shadow: inset 0 -3em 0 0 currentColor;
+    box-shadow: inset 0 -3em 0 0 currentColor;
 }
 
 h1 {
-  @apply text-5xl mb-8;
+    @apply text-5xl mb-8;
 }
 h2 {
-  @apply text-4xl mb-8;
+    @apply text-4xl mb-8;
 }
 h3 {
-  @apply text-3xl mb-8;
+    @apply text-3xl mb-8;
 }
 h4 {
-  @apply text-2xl mb-8;
+    @apply text-2xl mb-8;
 }
 h5 {
-  @apply text-2xl mb-4;
+    @apply text-2xl mb-4;
 }
 h6 {
-  @apply text-xl;
+    @apply text-xl;
 }
 
 p:not(:last-child),
 pre:not(:last-child),
 blockquote:not(:last-child) {
-  @apply mb-5 leading-loose;
+    @apply mb-5 leading-loose;
 }
 
 ul {
-  @apply list-disc list-inside;
+    @apply list-disc list-inside;
 }
 
 blockquote {
-  @apply max-w-full p-6 bg-gray-200 rounded-lg;
+    @apply max-w-full p-6 bg-gray-200 rounded-lg;
 }
 
 div#___gatsby > div#gatsby-focus-wrapper,
 div#___gatsby > div#gatsby-focus-wrapper > div {
-  @apply h-full;
+    @apply h-full;
 }
 
 ::moz-selection {
-  background-color: #534491;
-  color: #edf2f7;
+    background-color: #534491;
+    color: #edf2f7;
 }
 
 ::selection {
-  background-color: #534491;
-  color: #edf2f7;
+    background-color: #534491;
+    color: #edf2f7;
 }
 
 @tailwind utilities;
 
 .hide-before::before {
-  display: none;
+    display: none;
+}
+
+.transition-all {
+    transition: all 0.25s ease-out;
 }
