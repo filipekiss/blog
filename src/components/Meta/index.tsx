@@ -72,7 +72,7 @@ export default function Meta(props: Props) {
       </Helmet>
       <Facebook
         url={url || siteUrl}
-        img={img || socialImg}
+        img={img || `${siteDomain}/${socialImg}`}
         article={Boolean(article)}
       />
       <Twitter
@@ -81,6 +81,7 @@ export default function Meta(props: Props) {
         id={twitterId}
         creator={twitter.username}
         domain={siteDomain}
+        image={img || `${siteDomain}/${socialImg}`}
       />
     </>
   )
