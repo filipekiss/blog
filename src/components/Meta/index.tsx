@@ -1,18 +1,20 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { Facebook } from "./Facebook"
+import { Twitter } from "./Twitter"
 
 export interface Props {
   title?: string
   url?: string
   excerpt?: string
-  post?: boolean
+  article?: boolean
   img?: string
   children?: React.ReactChild
 }
 
 export default function Meta(props: Props) {
-  const { title, url, excerpt, post, img, children } = props
+  const { title, url, excerpt, article, img, children } = props
   const data: SiteMetaData = useStaticQuery(graphql`
     query HeadingMetaQuery {
       site {
@@ -65,17 +67,18 @@ export default function Meta(props: Props) {
       {title && <title>{title}</title>}
       <meta name="description" content={excerpt || description} />
       {/* Facebook */}
-      <meta property="og:url" content={url} />
-      <meta property="og:image" content={img || socialImg} />
-      <meta property="og:type" content={post ? "article" : "website"} />
-      {/* Twitter */}
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={excerpt || description} />
-      <meta property="twitter:account_id" content={twitterId} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={twitter.username} />
-      <meta name="twitter:domain" content={siteUrl} />
-      <meta name="twitter:site:id" content={twitterId} />
+      <Facebook
+        url={url || siteUrl}
+        img={img || socialImg}
+        article={Boolean(article)}
+      />
+      <Twitter
+        title={title || defaultTitle}
+        description={excerpt || description}
+        id={twitterId}
+        creator={twitter.username}
+        domain={siteDomain}
+      />
       <body className="flex-1 pt-16 pb-8 max-w-full text-lg" />
       {children}
     </Helmet>
