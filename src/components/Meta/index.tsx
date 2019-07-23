@@ -59,14 +59,17 @@ export default function Meta(props: Props) {
   console.log({ props, data })
 
   return (
-    <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate}>
-      <html
-        className="font-sans mx-auto px-10 lg:px-0 lg:max-w-4xl lg:ml-32 xl:ml-64 text-gray-800
+    <>
+      <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate}>
+        <html
+          className="font-sans mx-auto px-10 lg:px-0 lg:max-w-4xl lg:ml-32 xl:ml-64 text-gray-800
           min-h-full flex"
-      />
-      {title && <title>{title}</title>}
-      <meta name="description" content={excerpt || description} />
-      {/* Facebook */}
+        />
+        {title && <title>{title}</title>}
+        <meta name="description" content={excerpt || description} />
+        {/* Facebook */}
+        <body className="flex-1 pt-16 pb-8 max-w-full text-lg" />
+      </Helmet>
       <Facebook
         url={url || siteUrl}
         img={img || socialImg}
@@ -79,8 +82,6 @@ export default function Meta(props: Props) {
         creator={twitter.username}
         domain={siteDomain}
       />
-      <body className="flex-1 pt-16 pb-8 max-w-full text-lg" />
-      {children}
-    </Helmet>
+    </>
   )
 }
