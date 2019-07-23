@@ -4,6 +4,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Facebook } from "./Facebook"
 import { Twitter } from "./Twitter"
 
+// Used to make sure the metadata titles matches the page title
+const formatTitle = (format: string, title: string) => {
+  return format.replace(/%s/g, title)
+}
 export interface Props {
   title?: string
   url?: string
@@ -14,7 +18,7 @@ export interface Props {
 }
 
 export default function Meta(props: Props) {
-  const { title, url, excerpt, article, img, children } = props
+  const { title, url, excerpt, article, img } = props
   const data: SiteMetaData = useStaticQuery(graphql`
     query HeadingMetaQuery {
       site {
@@ -58,8 +62,6 @@ export default function Meta(props: Props) {
 
   const siteUrl = `${protocol}://${siteDomain}`
 
-  console.log({ props, data })
-
   return (
     <>
       <Helmet defaultTitle={defaultTitle} titleTemplate={titleTemplate}>
@@ -73,12 +75,13 @@ export default function Meta(props: Props) {
         <body className="flex-1 pt-16 pb-8 max-w-full text-lg" />
       </Helmet>
       <Facebook
+        title={title ? formatTitle(titleTemplate, title) : defaultTitle}
         url={url || siteUrl}
         img={img || `${siteUrl}${socialImg}`}
         article={Boolean(article)}
       />
       <Twitter
-        title={title || defaultTitle}
+        title={title ? formatTitle(titleTemplate, title) : defaultTitle}
         description={excerpt || description}
         id={twitterId}
         creator={twitter.username}
