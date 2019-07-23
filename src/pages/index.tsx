@@ -16,7 +16,9 @@ export default ({ data }: { data: IndexDataQuery }) => (
   <PageLayout>
     <Meta></Meta>
     <Intro />
-    <PostList posts={data.allMarkdownRemark.edges} />
+    <main>
+      <PostList posts={data.allMarkdownRemark.edges} />
+    </main>
   </PageLayout>
 )
 
@@ -27,7 +29,7 @@ export const query = graphql`
         fields: { collection: { eq: "blog" } }
         frontmatter: { published: { eq: true } }
       }
-      sort: { fields: frontmatter___date }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
         node {

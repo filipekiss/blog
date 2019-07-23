@@ -17,7 +17,10 @@ export default (props: Props) => {
           <li key={post.id} id={post.id}>
             <Link to={post.fields.slug}>
               <h3>
-                {post.frontmatter.title} <span>— {post.frontmatter.date}</span>
+                {post.frontmatter.title}
+                {post.frontmatter.date && (
+                  <span> &middot; {post.frontmatter.date}</span>
+                )}
               </h3>
               <p>
                 {post.frontmatter.excerpt

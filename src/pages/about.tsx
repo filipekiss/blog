@@ -30,8 +30,25 @@ export default () => (
         Site build with <a href="https://gatsbyjs.org">GatsbyJS</a>
       </li>
       <li>
-        Thems is custom made, based on{" "}
+        Theme is custom made, based on{" "}
         <a href="https://kothemes.com/themes/kompact/">Kompact</a>
+      </li>
+      <li>
+        Fonts:{" "}
+        <a
+          rel="noopener noreferer"
+          href="https://fonts.google.com/specimen/Nunito"
+        >
+          Nunito
+        </a>{" "}
+        and{" "}
+        <a
+          rel="noopener noreferer"
+          className="font-mono"
+          href="https://fonts.google.com/specimen/Space+Mono"
+        >
+          Space Mono
+        </a>
       </li>
       <li>TypeScript, just because</li>
       <li>

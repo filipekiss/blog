@@ -23,11 +23,11 @@ export default ({ data }: BlogPostQuery) => {
   return (
     <PageLayout>
       <Meta title={post.frontmatter.title} url={post.fields.slug} />
-      <div>
+      <main className="article single-entry">
         <h1>{post.frontmatter.title}</h1>
         <small>Published on {post.frontmatter.date}</small>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      </main>
     </PageLayout>
   )
 }

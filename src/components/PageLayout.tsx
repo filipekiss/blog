@@ -3,6 +3,7 @@ import "../styles/global.css"
 import Header from "./Header"
 import Meta from "./Meta"
 import { useStaticQuery, graphql } from "gatsby"
+import Footer from "./Footer"
 
 export default (props: any) => {
   const { children } = props
@@ -31,6 +32,7 @@ export default (props: any) => {
         links={data.site.siteMetadata.header.links}
       />
       {children}
+      <Footer />
     </div>
   )
 }

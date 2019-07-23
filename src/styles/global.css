@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito|Space+Mono&display=swap");
 
 @tailwind base;
 
@@ -14,26 +14,35 @@ a:hover {
 }
 
 h1 {
-  @apply text-4xl;
+  @apply text-5xl mb-8;
 }
 h2 {
-  @apply text-3xl;
+  @apply text-4xl mb-8;
 }
 h3 {
-  @apply text-2xl;
+  @apply text-3xl mb-8;
 }
 h4 {
-  @apply text-xl;
+  @apply text-2xl mb-8;
 }
 
-p {
-  @apply mb-10;
+p:not(:last-child),
+pre:not(:last-child),
+blockquote:not(:last-child) {
+  @apply mb-5;
 }
 
 ul {
   @apply list-disc list-inside;
 }
 
-@tailwind utilities;
+blockquote {
+  @apply max-w-full p-3 bg-gray-200;
+}
 
-@import "./custom-utilities.css";
+div#___gatsby > div#gatsby-focus-wrapper,
+div#___gatsby > div#gatsby-focus-wrapper > div {
+  @apply h-full;
+}
+
+@tailwind utilities;
