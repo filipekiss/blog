@@ -1,9 +1,21 @@
 interface SiteMetaData {
   site: {
     siteMetadata: {
-      title: string
       header: {
-        links: Array<HeaderLink>
+        links: HeaderLink[]
+      }
+      title: string
+      titleTemplate: string
+      description: string
+      image: string
+      siteDomain: string
+      twitterId: string
+      social: {
+        twitter: {
+          url: string
+          text: string
+          username: string
+        }
       }
     }
   }

@@ -11,7 +11,7 @@ export default (props: Props) => {
     return <div className="text-lg">No posts here yet! Come back later.</div>
   }
   return (
-    <ul class="list-none">
+    <ul className="list-none">
       {posts.map(({ node: post }) => {
         return (
           <li key={post.id} id={post.id}>
