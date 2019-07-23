@@ -1,13 +1,14 @@
-import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { Helmet } from "react-helmet"
 import "../styles/global.css"
 import Header from "./Header"
+import Meta from "./Meta"
+import { useStaticQuery, graphql } from "gatsby"
 
 export default (props: any) => {
   const { children } = props
+
   const data: SiteMetaData = useStaticQuery(graphql`
-    query SiteMeta {
+    query HeaderSiteQuery {
       site {
         siteMetadata {
           header {
@@ -22,16 +23,9 @@ export default (props: any) => {
       }
     }
   `)
-
   return (
     <div>
-      <Helmet>
-        <html
-          className="font-sans mx-auto px-10 lg:px-0 lg:max-w-4xl lg:ml-32 xl:ml-64 text-gray-800
-          min-h-full flex"
-        />
-        <body className="flex-1 pt-16 pb-8 max-w-full text-lg" />
-      </Helmet>
+      <Meta />
       <Header
         headerText={data.site.siteMetadata.title}
         links={data.site.siteMetadata.header.links}

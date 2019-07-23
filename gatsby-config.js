@@ -4,9 +4,40 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const username = "filipekiss"
+const socialNetworks = {
+  github: `https://github.com/${username}`,
+  twitter: `https://twitter.com/${username}`,
+}
+
+const siteDomain =
+  process.env.NODE_ENV === "production"
+    ? "filipe.kiss.ink"
+    : "local.kiss.ink:8000"
+
+const protocol = process.env.NODE_ENV === "production" ? "https" : "http"
+
 const gatsbyConfig = {
   siteMetadata: {
     title: `filipe.kiss.ink`,
+    titleTemplate: "%s · filipe.kiss.ink",
+    description: `Hi, I'm Filipe Kiss and I'm a developer. I talk about software, code and other stuff`,
+    image: `/images/social.png`,
+    siteDomain,
+    protocol,
+    social: {
+      github: {
+        url: socialNetworks.github,
+        text: "github",
+        username,
+      },
+      twitter: {
+        url: socialNetworks.twitter,
+        text: "twitter",
+        username,
+      },
+    },
+    twitterId: "167462858",
     header: {
       links: [
         {
@@ -15,12 +46,12 @@ const gatsbyConfig = {
           isExternalLink: false,
         },
         {
-          href: "https://github.com/filipekiss",
+          href: socialNetworks.github,
           text: "github",
           isExternalLink: true,
         },
         {
-          href: "https://twitter.com/filipekiss",
+          href: socialNetworks.twitter,
           text: "twitter",
           isExternalLink: true,
         },

@@ -1,12 +1,11 @@
 import React from "react"
 import PageLayout from "../components/PageLayout"
 import Helmet from "react-helmet"
+import Meta from "../components/Meta"
 
 export default () => (
   <PageLayout>
-    <Helmet>
-      <title>filipe.kiss.ink &middot; About</title>
-    </Helmet>
+    <Meta title="about" />
     <h1>About</h1>
     <div className="flex mb-20 items-center flex-col lg:flex-row">
       <div className="mb-10 lg:mb-0 max-w-xs lg:max-w-full lg:order-2 lg:w-1/2">
