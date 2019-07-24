@@ -26,11 +26,17 @@ h3 {
 h4 {
   @apply text-2xl mb-8;
 }
+h5 {
+  @apply text-2xl mb-4;
+}
+h6 {
+  @apply text-xl;
+}
 
 p:not(:last-child),
 pre:not(:last-child),
 blockquote:not(:last-child) {
-  @apply mb-5;
+  @apply mb-5 leading-loose;
 }
 
 ul {
@@ -38,7 +44,7 @@ ul {
 }
 
 blockquote {
-  @apply max-w-full p-3 bg-gray-200;
+  @apply max-w-full p-6 bg-gray-200 rounded-lg;
 }
 
 div#___gatsby > div#gatsby-focus-wrapper,
