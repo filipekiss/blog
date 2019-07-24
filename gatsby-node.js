@@ -1,4 +1,5 @@
 const path = require("path")
+const fs = require("fs")
 const { createFilePath } = require("gatsby-source-filesystem")
 
 const addCollectionField = function(node, getNode, createNodeField) {
@@ -21,6 +22,19 @@ const addSlugField = function(node, getNode, createNodeField) {
     name: `slug`,
     value: `${slug}`,
   })
+}
+
+const resolveTemplateFile = node => {
+  const defaultComponent = path.resolve("./src/templates/GenericPage.tsx")
+  const collectionName = node.fields.collection
+  if (!collectionName) {
+    return defaultComponent
+  }
+  const customComponent = path.resolve(`./src/templates/${collectionName}.tsx`)
+  if (fs.existsSync(customComponent)) {
+    return customComponent
+  }
+  return defaultComponent
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -50,10 +64,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
   ).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      let component = path.resolve("./src/templates/GenericPage.tsx")
-      if (node.fields.collection === "blog") {
-        component = path.resolve("./src/templates/BlogPost.tsx")
-      }
+      const component = resolveTemplateFile(node)
       createPage({
         path: node.fields.slug,
         component,
