@@ -21,7 +21,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-        mono: ["Space Mono", ...defaultTheme.fontFamily.mono],
+        mono: ["IBM Plex Mono", ...defaultTheme.fontFamily.mono],
       },
     },
     variants: {},

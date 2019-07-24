@@ -45,9 +45,9 @@ export default () => (
         <a
           rel="noopener noreferer"
           className="font-mono"
-          href="https://fonts.google.com/specimen/Space+Mono"
+          href="https://fonts.google.com/specimen/IBM+Plex+Mono"
         >
-          Space Mono
+          IBM Plex Mono
         </a>
       </li>
       <li>TypeScript, just because</li>
