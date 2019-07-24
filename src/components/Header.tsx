@@ -38,9 +38,7 @@ export default (props: HeaderProps) => {
   )
   return (
     <div className="flex justify-between items-end mb-20 text-base lg:text-xl">
-      <Link className="text-victoria-600" to="/">
-        <span className="text-gray-900">{headerText}</span>
-      </Link>
+      <Link to="/">{headerText}</Link>
       {linksElement}
     </div>
   )

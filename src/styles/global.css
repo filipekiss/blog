@@ -1,16 +1,17 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito|Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Nunito&display=swap");
 
 @tailwind base;
 
 @tailwind components;
 
 a {
+  @apply text-victoria-500;
   box-shadow: inset 0 -0.1em 0 0 currentColor;
   transition: all 0.25s ease-out;
 }
 
 a:hover {
-  box-shadow: inset 0 -0.4em 0 0 currentColor;
+  box-shadow: inset 0 -0.3em 0 0 currentColor;
 }
 
 h1 {
