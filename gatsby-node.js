@@ -13,6 +13,9 @@ const addCollectionField = function(node, getNode, createNodeField) {
 const addSlugField = function(node, getNode, createNodeField) {
   let slug = createFilePath({ node, getNode })
   slug = slug.substring(0, slug.length - 1)
+  if (node.fields.collection) {
+    slug = `/${node.fields.collection}${slug}`
+  }
   createNodeField({
     node,
     name: `slug`,
