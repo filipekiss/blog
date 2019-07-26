@@ -1,6 +1,6 @@
 import React from "react"
 
-export default () => {
+export const Intro = () => {
   return (
     <div className="mb-20 max-w-lg">
       <div className="text-6xl">Hello, I'm Kiss,</div>

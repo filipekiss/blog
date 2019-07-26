@@ -1,11 +1,11 @@
 import React from "react"
-import "../styles/global.css"
-import Header from "./Header"
-import Meta from "./Meta"
+import "../../styles/global.css"
+import Header from "../Header"
+import Meta from "../Meta"
 import { useStaticQuery, graphql } from "gatsby"
-import Footer from "./Footer"
+import Footer from "../Footer"
 
-export default (props: any) => {
+export const PageLayout = (props: any) => {
   const { children } = props
 
   const data: SiteMetaData = useStaticQuery(graphql`

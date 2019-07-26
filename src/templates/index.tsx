@@ -1,7 +1,8 @@
 import { graphql } from "gatsby"
 import React from "react"
-import PageLayout from "../components/PageLayout"
 import Meta from "../components/Meta"
+import PageLayout from "../components/PageLayout"
+import { AuthorCard } from "../components/AuthorCard/AuthorCard"
 
 type BlogPostQuery = {
   data: {
@@ -25,8 +26,11 @@ export default ({ data }: BlogPostQuery) => {
       <Meta title={post.frontmatter.title} url={post.fields.slug} />
       <main className="article single-entry">
         <h1>{post.frontmatter.title}</h1>
-        <small>Published on {post.frontmatter.date}</small>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          className="mb-10"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+        <AuthorCard date={post.frontmatter.date} />
       </main>
     </PageLayout>
   )
@@ -40,7 +44,7 @@ export const query = graphql`
       html
       frontmatter {
         title
-        date(formatString: "DD-MM-YY HH:mm")
+        date(formatString: "MMMM DD, YYYY")
       }
       fields {
         slug

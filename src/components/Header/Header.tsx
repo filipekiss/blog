@@ -18,7 +18,7 @@ const buildHeaderLink = (link: HeaderLink) => {
   return <Link to={href}>{text}</Link>
 }
 
-export default (props: HeaderProps) => {
+export const Header = (props: HeaderProps) => {
   const { headerText, links } = props
   const linksElement = (
     <nav className="flex flex-col">

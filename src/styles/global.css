@@ -6,12 +6,25 @@
 
 a {
   @apply text-victoria-500;
-  box-shadow: inset 0 -0.1em 0 0 currentColor;
+  @apply relative;
   transition: all 0.25s ease-out;
 }
 
+a::before {
+  content: "";
+  @apply text-victoria-500;
+  box-shadow: inset 0 -1px 0 0 currentColor;
+  transition: all 0.25s ease-out;
+  z-index: -1;
+  @apply absolute inline-block bottom-0 left-0 right-0 h-full;
+}
+
 a:hover {
-  box-shadow: inset 0 -0.3em 0 0 currentColor;
+  @apply text-gray-100;
+}
+
+a:hover::before {
+  box-shadow: inset 0 -3em 0 0 currentColor;
 }
 
 h1 {
@@ -52,4 +65,18 @@ div#___gatsby > div#gatsby-focus-wrapper > div {
   @apply h-full;
 }
 
+::moz-selection {
+  background-color: #534491;
+  color: #edf2f7;
+}
+
+::selection {
+  background-color: #534491;
+  color: #edf2f7;
+}
+
 @tailwind utilities;
+
+.hide-before::before {
+  display: none;
+}

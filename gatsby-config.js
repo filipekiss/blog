@@ -63,6 +63,7 @@ const gatsbyConfig = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     "gatsby-plugin-tslint",
+    "gatsby-plugin-svgr",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -70,13 +71,6 @@ const gatsbyConfig = {
         path: `${__dirname}/content/blog`,
       },
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "pages",
-    //     path: `${__dirname}/content/pages`,
-    //   },
-    // },
     "gatsby-transformer-remark",
   ],
 }

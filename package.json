@@ -15,9 +15,11 @@
     "lint": "tslint --project ."
   },
   "dependencies": {
+    "@svgr/webpack": "^4.3.2",
     "gatsby": "^2.13.28",
     "gatsby-plugin-postcss": "^2.1.2",
     "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-tslint": "^0.0.2",
     "gatsby-plugin-typescript": "^2.1.2",
     "gatsby-source-filesystem": "^2.1.5",

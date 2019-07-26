@@ -1,10 +1,9 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Intro from "../components/Intro"
-import PageLayout from "../components/PageLayout"
-import PostList from "../components/PostList"
-import Helmet from "react-helmet"
 import Meta from "../components/Meta"
+import { PageLayout } from "../components/PageLayout/PageLayout"
+import PostList from "../components/PostList"
 
 type IndexDataQuery = {
   allMarkdownRemark: {
@@ -14,7 +13,7 @@ type IndexDataQuery = {
 
 export default ({ data }: { data: IndexDataQuery }) => (
   <PageLayout>
-    <Meta></Meta>
+    <Meta />
     <Intro />
     <main>
       <PostList posts={data.allMarkdownRemark.edges} />
@@ -36,13 +35,13 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD.MM.YYYY HH:mm")
+            date(formatString: "MMMM DD, YYYY")
             excerpt
           }
           fields {
             slug
           }
-          excerpt
+          excerpt(pruneLength: 320)
         }
       }
     }

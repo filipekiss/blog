@@ -8,26 +8,28 @@ export default () => (
     <Meta title="about" url="/about" />
     <h1>About</h1>
     <div className="flex mb-20 items-center flex-col lg:flex-row">
-      <div className="mb-10 lg:mb-0 max-w-xs lg:max-w-full lg:order-2 lg:w-1/2">
+      <div className="mb-10 lg:mb-0 max-w-xs lg:max-w-full lg:order-2 lg:w-1/4">
         <img
-          className="rounded-circle lg:rounded-lg object-cover shadow-lg"
+          className="rounded-circle shadow-lg"
           src="/images/me.png"
           alt="Me and my cat Tabule"
         />
       </div>
-      <div className="lg:w-1/2">
-        Hi, welcome to my blog! This is where I'll write all the things I keep
-        _googling_ because I forget how to do them. I'll also use this space to
-        talk about some projects and software development in general. If you
-        like what I write here, you should also{" "}
-        <a href="https://twitter.com/filipekiss">follow me on twitter</a>. (And
-        yes, Kiss is my real last name).
+      <div className="lg:w-3/4">
+        <p className="text-xl">
+          I'm Filipe Kiss, I am a full stack developer based on Amsterdam, the
+          Netherlands. I have been programming for almost 20 years, 11 of them
+          professionally, and I'm always looking for a new thing to learn about,
+          be it software related or not. You can find me on{" "}
+          <a href="https://twitter.com/filipekiss">Twitter</a> where I mostly
+          speak portuguese, but feel free to @ me.
+        </p>
       </div>
     </div>
-    <h4>Tech Stack</h4>
+    <h5>About the blog</h5>
     <ul>
       <li>
-        Site build with <a href="https://gatsbyjs.org">GatsbyJS</a>
+        Site built with <a href="https://gatsbyjs.org">GatsbyJS</a>
       </li>
       <li>
         Theme is custom made, based on{" "}
@@ -49,6 +51,9 @@ export default () => (
         >
           IBM Plex Mono
         </a>
+      </li>
+      <li>
+        Icons are from <a href="https://simpleicons.org/">SimpleIcons</a>
       </li>
       <li>TypeScript, just because</li>
       <li>

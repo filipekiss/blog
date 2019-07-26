@@ -24,13 +24,12 @@ const addSlugField = function(node, getNode, createNodeField) {
   })
 }
 
-const resolveTemplateFile = node => {
-  const defaultComponent = path.resolve("./src/templates/GenericPage.tsx")
+const resolveComponentFilePath = node => {
+  const defaultComponent = path.resolve("./src/templates/index.tsx")
   const collectionName = node.fields.collection
-  if (!collectionName) {
-    return defaultComponent
-  }
-  const customComponent = path.resolve(`./src/templates/${collectionName}.tsx`)
+  const customComponent = path.resolve(
+    `./src/templates/collection-${collectionName}.tsx`
+  )
   if (fs.existsSync(customComponent)) {
     return customComponent
   }
@@ -64,7 +63,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
   ).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const component = resolveTemplateFile(node)
+      const component = resolveComponentFilePath(node)
       createPage({
         path: node.fields.slug,
         component,
