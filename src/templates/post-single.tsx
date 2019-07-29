@@ -20,6 +20,9 @@ export default (props: ISinglePostProps) => {
             <Meta title={post.frontmatter.title} url={post.fields.slug} />
             <main className="article single-entry">
                 <h1>{post.frontmatter.title}</h1>
+                <div className="my-4">
+                    <small>Posted on {post.frontmatter.date}</small>
+                </div>
                 <TranslationList
                     post={post}
                     translations={props.pageContext.translations}

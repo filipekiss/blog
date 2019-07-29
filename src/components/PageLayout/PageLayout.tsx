@@ -25,7 +25,7 @@ export const PageLayout = (props: any) => {
         }
     `);
     return (
-        <div>
+        <div className={props.className}>
             <Meta />
             <Header
                 headerText={data.site.siteMetadata.title}

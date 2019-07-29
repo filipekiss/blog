@@ -18,7 +18,7 @@ export interface IProps {
 }
 
 export const Meta = (props: IProps) => {
-    const {title, url, excerpt, article, img} = props;
+    const {title, url, excerpt, article, img, children} = props;
     const data: ISiteMetaData = useStaticQuery(graphql`
         query HeadingMetaQuery {
             site {
@@ -78,6 +78,7 @@ export const Meta = (props: IProps) => {
                 <meta name="description" content={excerpt || description} />
                 {/* Facebook */}
                 <body className="flex-1 pt-16 pb-8 max-w-full text-lg" />
+                {children}
             </Helmet>
             <Facebook
                 title={title ? formatTitle(titleTemplate, title) : defaultTitle}
