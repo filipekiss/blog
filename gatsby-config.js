@@ -83,9 +83,6 @@ const gatsbyConfig = {
                     'gatsby-remark-external-links',
                     {
                         resolve: 'gatsby-remark-autolink-headers',
-                        options: {
-                            className: 'hide-before',
-                        },
                     },
                 ],
             },

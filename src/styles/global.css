@@ -78,6 +78,7 @@ div#___gatsby > div#gatsby-focus-wrapper > div {
 
 @tailwind utilities;
 
+.anchor::before,
 .hide-before::before {
     display: none;
 }
