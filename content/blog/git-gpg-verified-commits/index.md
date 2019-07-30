@@ -5,7 +5,7 @@ spoiler:
     And also how to link the key with your GitHub account, so you have a nice
     Verified badge next to your commits
 date: 2019-07-23 16:59
-published: true
+published: false
 ---
 
 I have been signing my commits for a while now —
