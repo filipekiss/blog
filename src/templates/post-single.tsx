@@ -16,7 +16,16 @@ export default (props: ISinglePostProps) => {
     const post: IPost = data.markdownRemark;
     return (
         <PageLayout>
-            <Meta title={post.frontmatter.title} url={post.fields.slug} />
+            <Meta
+                title={post.frontmatter.title}
+                url={post.fields.slug}
+                excerpt={
+                    post.frontmatter.spoiler
+                        ? post.frontmatter.spoiler
+                        : post.excerpt
+                }
+                article={true}
+            />
             <main className="article single-entry">
                 <h1>{post.frontmatter.title}</h1>
                 <div className="my-4">
