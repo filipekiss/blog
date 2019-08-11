@@ -1,6 +1,12 @@
 import {Link} from 'gatsby';
 import React, {Fragment, ReactElement} from 'react';
-import {defaultPostsLanguage, languageNameFromCode} from '../../../i18n';
+import {
+    defaultPostsLanguage,
+    languageNameFromCode,
+    viewAllPosts,
+    postTranslatedBy,
+} from '../../../i18n';
+import TranslatedBy from './TranslatedBy';
 
 interface IProps {
     post: IPost;
@@ -27,9 +33,7 @@ const createTranslationLink = (
 const translationDisclaimer = (originalPost: string, langKey: string) => (
     <div className="m-4">
         <Link to={originalPost}>Read the original</Link> &middot;{' '}
-        <Link to={`/${langKey}/`}>
-            View all posts available in {languageNameFromCode(langKey)}
-        </Link>
+        <Link to={`/${langKey}/`}>{viewAllPosts(langKey)}</Link>
     </div>
 );
 
@@ -44,6 +48,7 @@ export const TranslationList = (props: IProps): ReactElement | null => {
         return null;
     }
     const enabledTranslations = Object.fromEntries(otherLanguages);
+    console.log(post.frontmatter);
     return (
         <div className="rounded bg-gray-100 p-4 my-8">
             <div className="m-4">
@@ -66,6 +71,12 @@ export const TranslationList = (props: IProps): ReactElement | null => {
                         post.fields.langKey
                     )}
             </div>
+            {post.frontmatter.translation && (
+                <TranslatedBy
+                    language={post.fields.langKey}
+                    translation={post.frontmatter.translation}
+                />
+            )}
         </div>
     );
 };

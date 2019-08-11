@@ -1,9 +1,8 @@
 import {graphql} from 'gatsby';
 import React from 'react';
-import {AuthorCard} from '../components/AuthorCard/AuthorCard';
 import Meta from '../components/Meta';
 import PageLayout from '../components/PageLayout';
-import TranslationList from '../components/TranslationList';
+import TranslationList from '../components/Translation';
 
 interface ISinglePostProps {
     data: {
@@ -31,7 +30,6 @@ export default (props: ISinglePostProps) => {
                     className="mb-10"
                     dangerouslySetInnerHTML={{__html: post.html}}
                 />
-                <AuthorCard />
             </main>
         </PageLayout>
     );
@@ -47,6 +45,11 @@ export const query = graphql`
                 title
                 date(formatString: "MMMM DD, YYYY")
                 spoiler
+                translation {
+                    name
+                    github
+                    twitter
+                }
             }
             fields {
                 slug

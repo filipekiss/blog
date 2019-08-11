@@ -5,6 +5,8 @@ declare module '*.png';
 declare module '*/i18n' {
     function languageNameFromCode(langKey: string): string;
     const defaultPostsLanguage: string;
+    function viewAllPosts(langKey: string): string;
+    function postTranslatedBy(langKey: string, name: string): string;
 }
 
 interface ISiteMetaData {
@@ -49,7 +51,14 @@ interface IPost {
         title: string;
         date: string;
         spoiler?: string;
+        translation?: ITranslator;
     };
+}
+
+interface ITranslator {
+    name: string;
+    github?: string;
+    twitter?: string;
 }
 
 interface ISupportedLanguages {
