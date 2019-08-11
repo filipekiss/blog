@@ -5,4 +5,9 @@ spoiler:
     queries
 date: 2019-07-24
 published: false
+# `name` is required and either `github` or `twitter` username to generate the links
+translation:
+    name: Filipe Kiss
+    github: filipekiss
+    twitter: filipekiss
 ---

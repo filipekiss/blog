@@ -4,8 +4,8 @@ spoiler:
     A simple guide of how to create and use a GPG Key to sign commits in git —
     And also how to link the key with your GitHub account, so you have a nice
     Verified badge next to your commits
-date: 2019-07-23 16:59
-published: false
+date: 2019-08-11
+published: true
 ---
 
 I have been signing my commits for a while now —
@@ -100,10 +100,9 @@ so we can add it to GitHub.
 
 #### Configuring git to sign your commits
 
-Now that we have a key and GitHub already knows about this key, we need to tell
-git that we want to sign all our commits from now own, using the key provided
-above. Do you still have that key id? Good! Let's tell git to use it to sign our
-commits:
+Now that we have a key, we need to tell git that we want to sign all our commits
+from now own. Do you still have that key id? Good! Let's tell git to use it to
+sign our commits:
 
 ```sh
 git config user.signingkey A5A675575744B557
@@ -133,8 +132,7 @@ gpg --armor --export A5A675575744B557
 
 You'll need to copy the whole output to paste on GitHub.
 
-Now just add the key to your GitHub profile and done. Now, let's deal with git
-itself
+Now just add the key to your GitHub profile and done.
 
 If everything worked out, your next commit to GitHub should have that nice
 verified badge :)
