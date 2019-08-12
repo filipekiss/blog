@@ -86,3 +86,9 @@ div#___gatsby > div#gatsby-focus-wrapper > div {
 .transition-all {
     transition: all 0.25s ease-out;
 }
+
+/* Improves post typography on smaller resolutions */
+@media all and (max-width: 1000px) {
+    font-size: 0.75em;
+    margin: 0 -1em;
+}
