@@ -179,3 +179,9 @@ h6:hover {
         }
     }
 }
+
+/* Improves post typography on smaller resolutions */
+@media all and (max-width: 1000px) {
+    font-size: 0.75em;
+    margin: 0 -1em;
+}
