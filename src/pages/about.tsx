@@ -14,13 +14,14 @@ export default () => (
                     alt="Me and my cat Tabule"
                 />
             </div>
-            <div className="lg:w-3/4">
+            <div className="lg:w-3/4 dropcap">
                 <p className="text-xl">
-                    I'm Filipe Kiss, I am a full stack developer based on
-                    Amsterdam, the Netherlands. I have been programming for
-                    almost 20 years, 11 of them professionally, and I'm always
-                    looking for a new thing to learn about, be it software
-                    related or not. You can find me on{' '}
+                    Hi, my name is Filipe Kiss (but almost everyone calls me
+                    Kiss) and I am a full stack developer based on Amsterdam,
+                    the Netherlands. I have been programming for almost 20
+                    years, 11 of them professionally, and I am always looking
+                    for a new thing to learn about, be it software related or
+                    not. You can find me on{' '}
                     <a href="https://twitter.com/filipekiss">Twitter</a> where I
                     mostly speak portuguese, but feel free to @ me.
                 </p>
@@ -54,7 +55,8 @@ export default () => (
             </li>
             <li>
                 Icons are from{' '}
-                <a href="https://simpleicons.org/">SimpleIcons</a>
+                <a href="https://simpleicons.org/">SimpleIcons</a> and{' '}
+                <a href="https://zondicons.com">Zondicons</a>
             </li>
             <li>TypeScript, just because</li>
             <li>
