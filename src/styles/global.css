@@ -86,3 +86,8 @@ div#___gatsby > div#gatsby-focus-wrapper > div {
 .transition-all {
     transition: all 0.25s ease-out;
 }
+
+.dropcap > p:first-of-type::first-letter {
+    @apply text-6xl font-bold leading-none;
+    color: #534491;
+}

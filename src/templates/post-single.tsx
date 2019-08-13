@@ -36,7 +36,7 @@ export default (props: ISinglePostProps) => {
                     translations={props.pageContext.translations}
                 />
                 <div
-                    className="mb-10"
+                    className="mb-10 dropcap"
                     dangerouslySetInnerHTML={{__html: post.html}}
                 />
             </main>
