@@ -7,6 +7,7 @@
 :root {
     --container-size: 56rem;
     --color-accent: #534491;
+    --color-white: #fff;
     --animation-quintic: cubic-bezier(0.86, 0, 0.07, 1);
 }
 
@@ -85,8 +86,18 @@ div#___gatsby > div#gatsby-focus-wrapper > div {
 @tailwind utilities;
 
 .dropcap > p:first-of-type::first-letter {
-    @apply text-6xl font-bold leading-none;
-    color: var(--color-accent);
+    @apply font-bold;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    float: left;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    margin-right: 1rem;
+    border-radius: 4.5px;
+    text-align: center;
 }
 
 h1,
