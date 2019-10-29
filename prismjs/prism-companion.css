@@ -1,0 +1,135 @@
+/*
+ * Companion PrismJS ColorScheme
+ * -----------------------------------------------------------------------------
+ *
+ * Description
+ * -----------
+ * My custom color scheme for PrismJS
+ * -----------------------------------------------------------------------------
+ *
+ * Authors
+ * -------
+ * Filipe Kiss <filipe@kiss.ink> http://github.com/filipekiss
+ * -------------------------------------------------------------------------- */
+
+/*********************************************************
+* General
+*/
+pre[class*='language-'],
+code[class*='language-'] {
+    color: var(--color-geyser);
+    font-size: 13px;
+    text-shadow: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection {
+    text-shadow: none;
+    background: var(--color-jordy-blue);
+    color: var(--color-baby-blue-eyes);
+}
+
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
+    background: var(--color-jordy-blue);
+    color: var(--color-baby-blue-eyes);
+}
+@media print {
+    pre[class*='language-'],
+    code[class*='language-'] {
+        text-shadow: none;
+    }
+}
+pre[class*='language-'] {
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+    background: var(--color-black-pearl);
+}
+:not(pre) > code[class*='language-'] {
+    padding: 0.1em 0.3em;
+    border-radius: 0.3em;
+    background: var(--color-accent);
+    color: var(--color-baby-blue-eyes);
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+    opacity: 0.7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--color-oslo-gray);
+}
+.token.punctuation {
+    color: var(--color-bright-ube);
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: var(--color-baby-blue-eyes);
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: var(--color-sweet-corn);
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: var(--color-bright-ube);
+    background: transparent;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: var(--color-bright-ube);
+}
+.token.function {
+    color: var(--color-jordy-blue);
+}
+.token.regex,
+.token.important,
+.token.variable {
+    color: var(--color-baby-blue-eyes);
+}
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+.token.entity {
+    cursor: help;
+}
