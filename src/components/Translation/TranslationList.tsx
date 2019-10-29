@@ -49,7 +49,7 @@ export const TranslationList = (props: IProps): ReactElement | null => {
     }
     const enabledTranslations = Object.fromEntries(otherLanguages);
     return (
-        <div className="rounded bg-gray-100 p-4 my-8">
+        <div className="rounded bg-gray-300 p-4 my-8">
             <div className="m-4">
                 Translations Available:{' '}
                 {Object.entries(enabledTranslations).map(

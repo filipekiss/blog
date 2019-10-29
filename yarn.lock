@@ -762,6 +762,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.6.0":
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.2.tgz#c3d6e41b304ef10dcf13777a33e7694ec4a9a6dd"
+  integrity sha512-EXxN64agfUqqIGeEjI5dL5z0Sw0ZwWo1mLTi4mQowCZ42O59b7DRpZAnTC6OqdF28wMBMFKNb/4uFGrVaigSpg==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -2881,6 +2888,15 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
+clipboard@^2.0.0:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
+  integrity sha512-Vw26VSLRpJfBofiVaFb/I8PVfdI1OxKcYShe6fm0sP/DtmiWQNCjhM/okTvdCo0G+lMMm1rMYbk4IK4x1X+kgQ==
+  dependencies:
+    good-listener "^1.2.2"
+    select "^1.1.2"
+    tiny-emitter "^2.0.0"
+
 clipboardy@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/clipboardy/-/clipboardy-1.2.3.tgz#0526361bf78724c1f20be248d428e365433c07ef"
@@ -3777,6 +3793,11 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
+
+delegate@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -5361,6 +5382,13 @@ gatsby-remark-autolink-headers@^2.1.3:
     mdast-util-to-string "^1.0.2"
     unist-util-visit "^1.3.0"
 
+gatsby-remark-default-html-attrs@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-default-html-attrs/-/gatsby-remark-default-html-attrs-1.0.0.tgz#a03225c99ff7f2615da2b1ea188146dc00c45cea"
+  integrity sha512-M4SNfKvQxll+pxy0PoIQjE6D5/SUiBVXD3OOlPnTdqgdCM5gZZatg86/AA2nTwYkdFsyi23GlGPtzKAxYu1WnA==
+  dependencies:
+    unist-util-select "^2.0.0"
+
 gatsby-remark-external-links@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/gatsby-remark-external-links/-/gatsby-remark-external-links-0.0.4.tgz#85b98c1e9dacfaa58085319648c904ff3cab42f0"
@@ -5386,6 +5414,15 @@ gatsby-remark-images@^3.1.7:
     slash "^1.0.0"
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.0.1"
+
+gatsby-remark-prismjs@^3.3.14:
+  version "3.3.14"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.3.14.tgz#acf10739d41739bdbcb21e88f0da924325e7bf6f"
+  integrity sha512-KGYjCSpry0DXPhd66wpTEubkcuNrNnW2JWh/eGWRvACLzLpInTNFHTm1wOYsRsfAFVYFT4CWChq33ALaiCH96Q==
+  dependencies:
+    "@babel/runtime" "^7.6.0"
+    parse-numeric-range "^0.0.2"
+    unist-util-visit "^1.4.1"
 
 gatsby-source-filesystem@^2.1.5:
   version "2.1.5"
@@ -5784,6 +5821,13 @@ globby@^8.0.1:
     ignore "^3.3.5"
     pify "^3.0.0"
     slash "^1.0.0"
+
+good-listener@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
+  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
+  dependencies:
+    delegate "^3.1.2"
 
 got@8.0.0:
   version "8.0.0"
@@ -8383,6 +8427,11 @@ normalize.css@^8.0.1:
   resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
   integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
+not@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/not/-/not-0.1.0.tgz#c9691c1746c55dcfbe54cbd8bd4ff041bc2b519d"
+  integrity sha1-yWkcF0bFXc++VMvYvU/wQbwrUZ0=
+
 npm-bundled@^1.0.1:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.6.tgz#e7ba9aadcef962bb61248f91721cd932b3fe6bdd"
@@ -8923,6 +8972,11 @@ parse-latin@^4.0.0:
     nlcst-to-string "^2.0.0"
     unist-util-modify-children "^1.0.0"
     unist-util-visit-children "^1.0.0"
+
+parse-numeric-range@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/parse-numeric-range/-/parse-numeric-range-0.0.2.tgz#b4f09d413c7adbcd987f6e9233c7b4b210c938e4"
+  integrity sha1-tPCdQTx6282Yf26SM8e0shDJOOQ=
 
 parse-passwd@^1.0.0:
   version "1.0.0"
@@ -9636,6 +9690,13 @@ pretty-hrtime@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
+
+prismjs@^1.17.1:
+  version "1.17.1"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.17.1.tgz#e669fcbd4cdd873c35102881c33b14d0d68519be"
+  integrity sha512-PrEDJAFdUGbOP6xK/UsfkC5ghJsPJviKgnQOoxaDbBjwc8op68Quupwt1DeAFoG8GImPhiKXAvvsH7wDSLsu1Q==
+  optionalDependencies:
+    clipboard "^2.0.0"
 
 private@^0.1.6:
   version "0.1.8"
@@ -10661,6 +10722,11 @@ select-hose@^2.0.0:
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
 
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
+  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
+
 selfsigned@^1.10.4:
   version "1.10.4"
   resolved "https://registry.yarnpkg.com/selfsigned/-/selfsigned-1.10.4.tgz#cdd7eccfca4ed7635d47a08bf2d5d3074092e2cd"
@@ -11685,6 +11751,11 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
+tiny-emitter@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
+  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
+
 tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
@@ -12139,6 +12210,17 @@ unist-util-select@^1.5.0:
     debug "^2.2.0"
     nth-check "^1.0.1"
 
+unist-util-select@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/unist-util-select/-/unist-util-select-2.0.2.tgz#cb2774b599695172e7b60a8b5f50793e418f7ea6"
+  integrity sha512-Yv5Z5ShMxv7Z9Dw175tKvOiRVXV4FrMHG778DSD9Z0jALgb3wAx9DoeInr3200QlYp71rYUXzzJdCb76xKdrCw==
+  dependencies:
+    css-selector-parser "^1.1.0"
+    not "^0.1.0"
+    nth-check "^1.0.1"
+    unist-util-is "^3.0.0"
+    zwitch "^1.0.3"
+
 unist-util-stringify-position@^1.0.0, unist-util-stringify-position@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/unist-util-stringify-position/-/unist-util-stringify-position-1.1.2.tgz#3f37fcf351279dcbca7480ab5889bb8a832ee1c6"
@@ -12156,7 +12238,7 @@ unist-util-visit-parents@^2.0.0, unist-util-visit-parents@^2.0.1:
   dependencies:
     unist-util-is "^3.0.0"
 
-unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.1.3, unist-util-visit@^1.3.0:
+unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.1.3, unist-util-visit@^1.3.0, unist-util-visit@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-1.4.1.tgz#4724aaa8486e6ee6e26d7ff3c8685960d560b1e3"
   integrity sha512-AvGNk7Bb//EmJZyhtRUnNMEpId/AZ5Ph/KUpTI09WHQuDZHKovQ1oEv3mfmKpWKtoMzyMC4GLBm1Zy5k12fjIw==
@@ -12850,7 +12932,7 @@ yurnalist@^1.0.5:
     strip-ansi "^5.0.0"
     strip-bom "^3.0.0"
 
-zwitch@^1.0.0:
+zwitch@^1.0.0, zwitch@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/zwitch/-/zwitch-1.0.4.tgz#93b1b993b13c8926753a41afaf8f27bbfac6be8b"
   integrity sha512-YO803/X+13GNaZB7fVopjvHH0uWQKgJkgKnU1YCjxShjKGVuN9PPHHW8g+uFDpkHpSTNi3rCMKMewIcbC1BAYg==
