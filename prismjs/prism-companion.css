@@ -20,7 +20,8 @@ code[class*='language-'] {
     color: var(--color-geyser);
     font-size: 13px;
     text-shadow: none;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: 'IBM Plex Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+        monospace;
     direction: ltr;
     text-align: left;
     white-space: pre;
@@ -65,10 +66,11 @@ pre[class*='language-'] {
     background: var(--color-black-pearl);
 }
 :not(pre) > code[class*='language-'] {
-    padding: 0.1em 0.3em;
-    border-radius: 0.3em;
-    background: var(--color-accent);
-    color: var(--color-baby-blue-eyes);
+    color: var(--color-accent);
+    padding: 0.2em 0.4em;
+    font-size: 85%;
+    border-radius: 3px;
+    background: var(--color-faded-background);
 }
 /*********************************************************
 * Tokens
