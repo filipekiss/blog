@@ -91,7 +91,7 @@ const gatsbyConfig = {
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {
-                            inlineCodeMarker: '›',
+                            inlineCodeMarker: '≠',
                             aliases: {
                                 sh: 'bash',
                             },

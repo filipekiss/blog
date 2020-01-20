@@ -19,7 +19,7 @@
 }
 
 .command-line-prompt > span[data-user]:before {
-    content: ' $';
+    content: ' ›';
 }
 
 .command-line-prompt > span[data-user='root']:not([data-host='']):before {
