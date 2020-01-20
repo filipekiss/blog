@@ -20,8 +20,9 @@ code[class*='language-'] {
     color: var(--color-geyser);
     font-size: 13px;
     text-shadow: none;
-    font-family: 'IBM Plex Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    font-family: 'Victor Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
         monospace;
+    font-variant-ligatures: none;
     direction: ltr;
     text-align: left;
     white-space: pre;

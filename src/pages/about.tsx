@@ -6,10 +6,10 @@ export default () => (
     <PageLayout>
         <Meta title="about" url="/about" />
         <h1>About</h1>
-        <div className="flex mb-20 items-center flex-col lg:flex-row">
-            <div className="mb-10 lg:mb-0 max-w-xs lg:max-w-full lg:order-2 lg:w-1/4">
+        <div className="flex flex-col items-center mb-20 lg:flex-row">
+            <div className="max-w-xs mb-10 lg:mb-0 lg:max-w-full lg:order-2 lg:w-1/4">
                 <img
-                    className="rounded-circle shadow-lg"
+                    className="shadow-lg rounded-circle"
                     src="/images/me.png"
                     alt="Me and my cat Tabule"
                 />
@@ -48,9 +48,9 @@ export default () => (
                 <a
                     rel="noopener noreferer"
                     className="font-mono"
-                    href="https://fonts.google.com/specimen/IBM+Plex+Mono"
+                    href="https://rubjo.github.io/victor-mono/"
                 >
-                    IBM Plex Mono
+                    Victor Mono
                 </a>
             </li>
             <li>
