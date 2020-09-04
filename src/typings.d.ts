@@ -39,6 +39,11 @@ interface IHeaderLink {
     isExternalLink?: boolean;
 }
 
+interface IPostUpdate {
+    date: string;
+    reason: string;
+}
+
 interface IPost {
     id: string;
     excerpt: string;
@@ -52,6 +57,7 @@ interface IPost {
         date: string;
         spoiler?: string;
         translation?: ITranslator;
+        updates?: IPostUpdate[];
     };
 }
 

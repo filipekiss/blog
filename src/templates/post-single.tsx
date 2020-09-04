@@ -11,6 +11,21 @@ interface ISinglePostProps {
     pageContext: IPageContext;
 }
 
+function LatestUpdate({updates}: {updates?: IPostUpdate[]}) {
+    if (!updates) return null;
+    const [latestUpdate] = updates;
+    return (
+        <div>
+            <small>
+                Latest Update:{' '}
+                <span title={`Update Reason: ${latestUpdate.reason}`}>
+                    {latestUpdate.date}
+                </span>
+            </small>
+        </div>
+    );
+}
+
 export default (props: ISinglePostProps) => {
     const {data} = props;
     const post: IPost = data.markdownRemark;
@@ -30,6 +45,7 @@ export default (props: ISinglePostProps) => {
                 <h1>{post.frontmatter.title}</h1>
                 <div className="my-4">
                     <small>Posted on {post.frontmatter.date}</small>
+                    <LatestUpdate updates={post.frontmatter.updates} />
                 </div>
                 <TranslationList
                     post={post}
@@ -58,6 +74,10 @@ export const query = graphql`
                     name
                     github
                     twitter
+                }
+                updates {
+                    date(formatString: "MMMM DD, YYYY")
+                    reason
                 }
             }
             fields {

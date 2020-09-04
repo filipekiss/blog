@@ -5,6 +5,9 @@ spoiler:
     a function in zsh that makes it much easier to perform this task.
 date: 2019-11-12
 published: true
+updates:
+    - date: 2020-09-04
+      reason: 'Added node_modules example'
 ---
 
 From time to time I find myself trying to move a batch of files that have a
@@ -180,8 +183,32 @@ first group.
 
 Of course it's much easier to use the `-W` flag like we did above, but it is
 important to understand how `zmv` captures and treats groups, so you can
-leverage all it's power. Let's try another example. Imagine the following (very
-simple) file structure:
+leverage all it's power.
+
+#### Ignoring a folder
+
+Let's continue with the `*.js → *.ts` example. Let's say you want to rename
+everyting on the project folder, but you need to ignore the `node_modules`
+folder. Since `zmv` uses glob patterns to match the files it will act on, we can
+write a glob pattern that will ignore the `node_modules` folder:
+
+```bash
+zmv -n '(^node_modules)/(**/)(*).js' '$1/$2$3.ts'
+```
+
+The patterns above is very similar to what we already saw, with the difference
+that we're ignoring the `node_modules` folder. Also, you may have noticed that
+we now have 3 groups instead of 2. This is because of how `zmv` matches the
+patterns. We need to group `(^node_modules)` because this will match, for
+example `src` in `src/file.js`. The `(**/)` will match any number of subfolders
+and the last `(*)` will match the filename. There's a small caveat, though.
+Since we're using `(^node_modules)` as the first pattern, any file on the root
+folder will be ignored. I haven't found a way to include these files using ZMV,
+but feel free to send me a suggestion on how to do it and I'll update the post!
+
+#### Moving files around
+
+Let's try another example. Imagine the following (very simple) file structure:
 
 ```
 random-pictures-folder
