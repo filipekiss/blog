@@ -116,6 +116,13 @@ const gatsbyConfig = {
         'gatsby-plugin-catch-links',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
+        {
+            resolve: 'gatsby-plugin-canonical-urls',
+            options: {
+                siteUrl: 'https://filipe.kiss.ink',
+                stripQueryString: true,
+            },
+        },
     ],
 };
 
